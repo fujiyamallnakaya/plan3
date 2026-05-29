@@ -1,0 +1,1513 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>The Myth of Japanese Uniqueness — A Comparison | Taro × You</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;600;700;800&family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600;9..144,700;9..144,800;9..144,900&family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper: #efe8d8;
+    --paper-soft: #f5efe1;
+    --paper-deep: #e6dcc5;
+    --ink: #1a1612;
+    --ink-soft: #4a4138;
+    --ink-mute: #8a7c68;
+    --vermillion: #b1392a;
+    --vermillion-deep: #872b20;
+    --indigo: #243a52;
+    --gold: #b08930;
+    --moss: #5a6a3a;
+    --line: rgba(26, 22, 18, 0.14);
+    --line-soft: rgba(26, 22, 18, 0.06);
+  }
+
+  * { box-sizing: border-box; }
+
+  html, body {
+    margin: 0;
+    padding: 0;
+    background: var(--paper);
+    color: var(--ink);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  body {
+    font-family: "Fraunces", "Shippori Mincho", Georgia, serif;
+    font-weight: 400;
+    line-height: 1.7;
+    min-height: 100vh;
+    background-image:
+      radial-gradient(circle at 12% 18%, rgba(176, 137, 48, 0.06), transparent 38%),
+      radial-gradient(circle at 88% 82%, rgba(36, 58, 82, 0.05), transparent 42%),
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence baseFrequency='0.85' numOctaves='2'/%3E%3CfeColorMatrix values='0 0 0 0 0.4 0 0 0 0 0.35 0 0 0 0 0.25 0 0 0 0.04 0'/%3E%3C/filter%3E%3Crect width='220' height='220' filter='url(%23n)'/%3E%3C/svg%3E");
+    background-blend-mode: multiply;
+  }
+
+  .page {
+    max-width: 1020px;
+    margin: 0 auto;
+    padding: 48px 40px 80px;
+    position: relative;
+  }
+
+  .kanji-mark {
+    position: absolute;
+    top: 80px;
+    right: 0;
+    font-family: "Shippori Mincho", serif;
+    font-weight: 700;
+    font-size: clamp(180px, 26vw, 340px);
+    color: var(--vermillion);
+    opacity: 0.07;
+    line-height: 0.85;
+    writing-mode: vertical-rl;
+    letter-spacing: 0.05em;
+    pointer-events: none;
+    user-select: none;
+    z-index: 0;
+    animation: fadeKanji 1.4s ease-out 0.2s both;
+  }
+
+  @keyframes fadeKanji {
+    from { opacity: 0; transform: translateX(20px); }
+    to { opacity: 0.07; transform: translateX(0); }
+  }
+
+  /* === Universal JP subtitle styles === */
+  .jp-sub {
+    font-family: "Shippori Mincho", serif;
+    font-size: 12.5px;
+    line-height: 1.7;
+    color: var(--ink-mute);
+    letter-spacing: 0.02em;
+    margin: 4px 0 0;
+    font-weight: 400;
+  }
+
+  .jp-sub-mid {
+    font-family: "Shippori Mincho", serif;
+    font-size: 14px;
+    line-height: 1.8;
+    color: var(--ink-mute);
+    letter-spacing: 0.02em;
+    margin: 8px 0 0;
+    font-weight: 400;
+  }
+
+  .jp-sub-big {
+    font-family: "Shippori Mincho", serif;
+    font-size: 16px;
+    line-height: 1.85;
+    color: var(--ink-soft);
+    letter-spacing: 0.02em;
+    margin: 12px 0 0;
+    font-weight: 500;
+  }
+
+  /* === Masthead === */
+  .masthead {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding-bottom: 28px;
+    border-bottom: 1.5px solid var(--ink);
+    margin-bottom: 64px;
+  }
+
+  .masthead-left { display: flex; flex-direction: column; gap: 6px; }
+
+  .issue-label {
+    font-family: "Fraunces", serif;
+    font-weight: 500;
+    font-style: italic;
+    font-size: 13px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+  }
+
+  .issue-title {
+    font-family: "Fraunces", serif;
+    font-weight: 600;
+    font-size: 19px;
+    color: var(--ink);
+    letter-spacing: 0.01em;
+  }
+
+  .issue-title-jp {
+    font-family: "Noto Sans JP", sans-serif;
+    font-weight: 400;
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    color: var(--ink-mute);
+    margin-top: 2px;
+  }
+
+  .masthead-right {
+    text-align: right;
+    font-family: "Fraunces", serif;
+    font-size: 12px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--ink-mute);
+    line-height: 1.5;
+  }
+
+  .masthead-right strong {
+    color: var(--vermillion);
+    font-weight: 700;
+  }
+
+  .masthead-right .jp-tag {
+    font-family: "Shippori Mincho", serif;
+    font-size: 11px;
+    color: var(--ink-mute);
+    letter-spacing: 0.05em;
+    text-transform: none;
+    margin-top: 4px;
+    font-weight: 500;
+  }
+
+  /* === Hero === */
+  .hero {
+    position: relative;
+    z-index: 2;
+    margin-bottom: 80px;
+    animation: fadeUp 0.9s ease-out 0.1s both;
+  }
+
+  .hero-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 22px;
+    font-family: "Fraunces", serif;
+    font-weight: 400;
+    font-style: italic;
+    font-size: 14px;
+    letter-spacing: 0.14em;
+    color: var(--vermillion);
+    text-transform: uppercase;
+  }
+
+  .hero-eyebrow::before {
+    content: "";
+    display: block;
+    width: 40px;
+    height: 1.5px;
+    background: var(--vermillion);
+  }
+
+  .hero-eyebrow .jp {
+    font-style: normal;
+    font-family: "Shippori Mincho", serif;
+    letter-spacing: 0.1em;
+    color: var(--ink-mute);
+    font-size: 12px;
+    margin-left: 4px;
+  }
+
+  .hero-headline {
+    font-family: "Fraunces", serif;
+    font-weight: 500;
+    font-size: clamp(34px, 4.8vw, 56px);
+    line-height: 1.1;
+    letter-spacing: -0.018em;
+    color: var(--ink);
+    max-width: 880px;
+    margin: 0 0 14px;
+  }
+
+  .hero-headline em {
+    font-style: italic;
+    color: var(--vermillion);
+    font-weight: 600;
+  }
+
+  .hero-strike {
+    text-decoration: line-through;
+    text-decoration-color: var(--vermillion);
+    text-decoration-thickness: 3px;
+    color: var(--ink-mute);
+    font-style: normal;
+    font-weight: 500;
+  }
+
+  .hero-headline-jp {
+    font-family: "Shippori Mincho", serif;
+    font-weight: 500;
+    font-size: clamp(16px, 1.6vw, 19px);
+    line-height: 1.55;
+    color: var(--ink-soft);
+    margin: 0 0 28px;
+    letter-spacing: 0.02em;
+    max-width: 820px;
+  }
+
+  .hero-deck {
+    font-family: "Fraunces", serif;
+    font-weight: 400;
+    font-size: 19px;
+    line-height: 1.6;
+    color: var(--ink-soft);
+    max-width: 760px;
+    margin: 0 0 10px;
+  }
+
+  .hero-deck-jp {
+    font-family: "Shippori Mincho", serif;
+    font-size: 14px;
+    line-height: 1.9;
+    color: var(--ink-mute);
+    max-width: 720px;
+    margin: 0;
+    padding-left: 18px;
+    border-left: 2px solid var(--paper-deep);
+  }
+
+  /* === Comparison === */
+  .compare {
+    position: relative;
+    z-index: 2;
+    margin-bottom: 68px;
+    animation: fadeUp 0.9s ease-out both;
+  }
+
+  .compare:nth-of-type(1) { animation-delay: 0.2s; }
+  .compare:nth-of-type(2) { animation-delay: 0.3s; }
+  .compare:nth-of-type(3) { animation-delay: 0.4s; }
+  .compare:nth-of-type(4) { animation-delay: 0.5s; }
+  .compare:nth-of-type(5) { animation-delay: 0.6s; }
+  .compare:nth-of-type(6) { animation-delay: 0.7s; }
+
+  .compare-num {
+    font-family: "Fraunces", serif;
+    font-weight: 300;
+    font-style: italic;
+    font-size: 15px;
+    letter-spacing: 0.18em;
+    color: var(--vermillion);
+    text-transform: uppercase;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .compare-num::before {
+    content: "";
+    width: 30px;
+    height: 1.5px;
+    background: var(--vermillion);
+  }
+
+  .compare-num .jp {
+    font-style: normal;
+    font-family: "Shippori Mincho", serif;
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    color: var(--ink-mute);
+  }
+
+  .compare-title {
+    font-family: "Fraunces", serif;
+    font-weight: 600;
+    font-size: clamp(26px, 3.2vw, 34px);
+    line-height: 1.2;
+    color: var(--ink);
+    margin: 0 0 6px;
+    letter-spacing: -0.012em;
+    max-width: 780px;
+  }
+
+  .compare-title em {
+    font-style: italic;
+    color: var(--vermillion);
+  }
+
+  .compare-title-jp {
+    font-family: "Shippori Mincho", serif;
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 1.6;
+    color: var(--ink-mute);
+    margin: 0 0 28px;
+    letter-spacing: 0.02em;
+  }
+
+  /* Japan hero card */
+  .jp-card {
+    background: linear-gradient(180deg, #fff8eb 0%, #fdf1d8 100%);
+    border: 1px solid var(--paper-deep);
+    border-left: 4px solid var(--vermillion);
+    padding: 28px 32px;
+    margin-bottom: 4px;
+    display: grid;
+    grid-template-columns: 120px 1fr;
+    gap: 28px;
+    align-items: center;
+  }
+
+  .jp-flag {
+    font-family: "Shippori Mincho", serif;
+    font-weight: 800;
+    font-size: 14px;
+    letter-spacing: 0.18em;
+    color: var(--vermillion);
+    text-align: center;
+    border-right: 1px solid var(--paper-deep);
+    padding-right: 24px;
+  }
+
+  .jp-flag .circle {
+    display: block;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: var(--vermillion);
+    margin: 0 auto 10px;
+    box-shadow: 0 0 0 4px rgba(177, 57, 42, 0.1);
+  }
+
+  .jp-flag .jp-name {
+    display: block;
+    font-size: 11px;
+    color: var(--ink-mute);
+    font-weight: 500;
+    margin-top: 4px;
+    letter-spacing: 0.1em;
+  }
+
+  .jp-content { display: flex; flex-direction: column; gap: 6px; }
+
+  .jp-phrase {
+    font-family: "Shippori Mincho", serif;
+    font-weight: 700;
+    font-size: 26px;
+    color: var(--ink);
+    line-height: 1.35;
+    letter-spacing: 0.01em;
+    margin: 0;
+  }
+
+  .jp-romaji {
+    font-family: "Fraunces", serif;
+    font-style: italic;
+    font-size: 14px;
+    color: var(--ink-mute);
+    letter-spacing: 0.08em;
+  }
+
+  .jp-meaning {
+    font-family: "Fraunces", serif;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 1.55;
+    color: var(--ink-soft);
+    margin-top: 6px;
+  }
+
+  .jp-meaning-jp {
+    font-family: "Shippori Mincho", serif;
+    font-size: 13px;
+    line-height: 1.75;
+    color: var(--ink-mute);
+    margin-top: 4px;
+  }
+
+  /* World grid */
+  .world-label {
+    font-family: "Fraunces", serif;
+    font-style: italic;
+    font-weight: 500;
+    font-size: 12px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--ink-mute);
+    margin: 22px 0 14px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .world-label::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: var(--line);
+  }
+
+  .world-label .jp {
+    font-style: normal;
+    font-family: "Shippori Mincho", serif;
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    text-transform: none;
+  }
+
+  .world-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+    margin-bottom: 24px;
+  }
+
+  .world-card {
+    padding: 18px 22px;
+    background: #ffffffa8;
+    border: 1px solid var(--line);
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    transition: transform 0.2s ease, border-color 0.2s ease;
+  }
+
+  .world-card:hover {
+    transform: translateY(-1px);
+    border-color: var(--ink-mute);
+  }
+
+  .country {
+    font-family: "Fraunces", serif;
+    font-weight: 700;
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--vermillion);
+    margin-bottom: 4px;
+  }
+
+  .world-phrase {
+    font-family: "Fraunces", serif;
+    font-weight: 600;
+    font-size: 17px;
+    line-height: 1.4;
+    color: var(--ink);
+    letter-spacing: -0.005em;
+  }
+
+  .world-phrase-jp {
+    font-family: "Shippori Mincho", serif;
+    font-size: 12.5px;
+    color: var(--ink-mute);
+    line-height: 1.5;
+    margin: 0 0 6px;
+    letter-spacing: 0.02em;
+  }
+
+  .world-gloss {
+    font-family: "Fraunces", serif;
+    font-style: italic;
+    font-size: 13px;
+    color: var(--ink-mute);
+    line-height: 1.5;
+  }
+
+  .world-gloss-jp {
+    font-family: "Shippori Mincho", serif;
+    font-size: 11.5px;
+    color: var(--ink-mute);
+    line-height: 1.65;
+    margin: 2px 0 0;
+    opacity: 0.85;
+  }
+
+  /* Verdict */
+  .verdict {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    padding: 14px 0 0;
+    border-top: 1px solid var(--line-soft);
+    flex-wrap: wrap;
+  }
+
+  .verdict-tag {
+    font-family: "Fraunces", serif;
+    font-style: italic;
+    font-weight: 700;
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--vermillion);
+    white-space: nowrap;
+    padding-top: 3px;
+  }
+
+  .verdict-body {
+    flex: 1;
+    min-width: 240px;
+  }
+
+  .verdict-text {
+    font-family: "Fraunces", serif;
+    font-size: 15px;
+    line-height: 1.55;
+    color: var(--ink);
+    font-style: italic;
+    margin: 0;
+  }
+
+  .verdict-jp {
+    font-family: "Shippori Mincho", serif;
+    font-size: 12.5px;
+    color: var(--ink-mute);
+    line-height: 1.7;
+    margin: 5px 0 0;
+    letter-spacing: 0.02em;
+  }
+
+  /* === Major break === */
+  .break {
+    position: relative;
+    z-index: 2;
+    margin: 90px 0 60px;
+    text-align: center;
+    animation: fadeUp 0.9s ease-out 0.3s both;
+  }
+
+  .break-ornament {
+    font-family: "Shippori Mincho", serif;
+    font-size: 28px;
+    color: var(--vermillion);
+    letter-spacing: 1em;
+    margin-bottom: 24px;
+    opacity: 0.6;
+  }
+
+  .break-title {
+    font-family: "Fraunces", serif;
+    font-weight: 600;
+    font-size: clamp(28px, 3.6vw, 42px);
+    line-height: 1.2;
+    color: var(--ink);
+    margin: 0 auto 8px;
+    max-width: 720px;
+    letter-spacing: -0.015em;
+  }
+
+  .break-title em {
+    color: var(--vermillion);
+    font-style: italic;
+  }
+
+  .break-title-jp {
+    font-family: "Shippori Mincho", serif;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--ink-mute);
+    margin: 0 auto 18px;
+    max-width: 620px;
+    letter-spacing: 0.02em;
+  }
+
+  .break-deck {
+    font-family: "Fraunces", serif;
+    font-size: 17px;
+    line-height: 1.65;
+    color: var(--ink-soft);
+    max-width: 620px;
+    margin: 0 auto 8px;
+  }
+
+  .break-deck-jp {
+    font-family: "Shippori Mincho", serif;
+    font-size: 13px;
+    color: var(--ink-mute);
+    line-height: 1.8;
+    max-width: 580px;
+    margin: 0 auto;
+  }
+
+  /* === Counter === */
+  .counter {
+    position: relative;
+    z-index: 2;
+    margin-bottom: 80px;
+    padding: 36px 38px;
+    background: var(--paper-soft);
+    border-left: 3px solid var(--moss);
+    animation: fadeUp 0.9s ease-out 0.4s both;
+  }
+
+  .counter-label {
+    font-family: "Fraunces", serif;
+    font-style: italic;
+    font-size: 12px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--moss);
+    margin-bottom: 12px;
+    font-weight: 600;
+  }
+
+  .counter-label .jp {
+    font-style: normal;
+    font-family: "Shippori Mincho", serif;
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    text-transform: none;
+    margin-left: 6px;
+    color: var(--ink-mute);
+  }
+
+  .counter-title {
+    font-family: "Fraunces", serif;
+    font-weight: 600;
+    font-size: 26px;
+    line-height: 1.3;
+    color: var(--ink);
+    margin: 0 0 6px;
+    letter-spacing: -0.01em;
+  }
+
+  .counter-title-jp {
+    font-family: "Shippori Mincho", serif;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 1.7;
+    color: var(--ink-mute);
+    margin: 0 0 18px;
+    letter-spacing: 0.02em;
+  }
+
+  .counter-text {
+    font-family: "Fraunces", serif;
+    font-size: 16px;
+    line-height: 1.7;
+    color: var(--ink-soft);
+    margin: 0 0 8px;
+  }
+
+  .counter-text-jp {
+    font-family: "Shippori Mincho", serif;
+    font-size: 13px;
+    color: var(--ink-mute);
+    line-height: 1.8;
+    margin: 0 0 22px;
+  }
+
+  .counter-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin-top: 20px;
+  }
+
+  .counter-card {
+    padding: 16px 18px;
+    background: #fff;
+    border: 1px solid var(--line);
+    border-top: 3px solid var(--moss);
+  }
+
+  .counter-country {
+    font-family: "Fraunces", serif;
+    font-weight: 700;
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--moss);
+    margin-bottom: 6px;
+  }
+
+  .counter-quote {
+    font-family: "Fraunces", serif;
+    font-style: italic;
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 1.45;
+    color: var(--ink);
+    margin: 0 0 3px;
+  }
+
+  .counter-quote-jp {
+    font-family: "Shippori Mincho", serif;
+    font-size: 12px;
+    color: var(--ink-mute);
+    line-height: 1.55;
+    margin: 0 0 8px;
+  }
+
+  .counter-note {
+    font-family: "Fraunces", serif;
+    font-size: 12.5px;
+    line-height: 1.5;
+    color: var(--ink-mute);
+  }
+
+  .counter-note-jp {
+    font-family: "Shippori Mincho", serif;
+    font-size: 11.5px;
+    color: var(--ink-mute);
+    line-height: 1.65;
+    margin-top: 4px;
+    opacity: 0.85;
+  }
+
+  /* === Real diff === */
+  .real-diff {
+    position: relative;
+    z-index: 2;
+    margin-bottom: 64px;
+    animation: fadeUp 0.9s ease-out 0.5s both;
+  }
+
+  .diff-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+    margin-top: 28px;
+  }
+
+  .diff-card {
+    padding: 24px 26px;
+    background: #ffffffc7;
+    border: 1px solid var(--line);
+    border-top: 4px solid var(--vermillion);
+  }
+
+  .diff-num {
+    font-family: "Fraunces", serif;
+    font-weight: 300;
+    font-size: 36px;
+    line-height: 1;
+    color: var(--vermillion);
+    letter-spacing: -0.04em;
+    margin-bottom: 12px;
+  }
+
+  .diff-title {
+    font-family: "Fraunces", serif;
+    font-weight: 600;
+    font-size: 17px;
+    line-height: 1.35;
+    color: var(--ink);
+    margin: 0 0 4px;
+    letter-spacing: -0.005em;
+  }
+
+  .diff-title-jp {
+    font-family: "Shippori Mincho", serif;
+    font-weight: 500;
+    font-size: 13px;
+    line-height: 1.6;
+    color: var(--ink-mute);
+    margin: 0 0 10px;
+  }
+
+  .diff-text {
+    font-family: "Fraunces", serif;
+    font-size: 14px;
+    line-height: 1.6;
+    color: var(--ink-soft);
+    margin: 0 0 6px;
+  }
+
+  .diff-text-jp {
+    font-family: "Shippori Mincho", serif;
+    font-size: 12px;
+    line-height: 1.75;
+    color: var(--ink-mute);
+    margin: 0;
+    padding-top: 6px;
+    border-top: 1px solid var(--line-soft);
+  }
+
+  /* === Takeaway === */
+  .takeaway {
+    position: relative;
+    z-index: 2;
+    margin: 80px 0 40px;
+    padding: 44px 40px;
+    background: linear-gradient(135deg, #1a1612 0%, #2a221a 100%);
+    color: var(--paper);
+    animation: fadeUp 0.9s ease-out 0.6s both;
+  }
+
+  .takeaway-label {
+    font-family: "Fraunces", serif;
+    font-style: italic;
+    font-size: 12px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: #f0c674;
+    margin-bottom: 18px;
+    font-weight: 500;
+  }
+
+  .takeaway-label .jp {
+    font-style: normal;
+    font-family: "Shippori Mincho", serif;
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    text-transform: none;
+    margin-left: 6px;
+    color: rgba(240, 198, 116, 0.7);
+  }
+
+  .takeaway-title {
+    font-family: "Fraunces", serif;
+    font-weight: 500;
+    font-size: clamp(24px, 3vw, 32px);
+    line-height: 1.3;
+    color: var(--paper);
+    margin: 0 0 6px;
+    letter-spacing: -0.012em;
+    max-width: 760px;
+  }
+
+  .takeaway-title em {
+    font-style: italic;
+    color: #f0c674;
+    font-weight: 600;
+  }
+
+  .takeaway-title-jp {
+    font-family: "Shippori Mincho", serif;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 1.7;
+    color: rgba(239, 232, 216, 0.7);
+    margin: 0 0 18px;
+    letter-spacing: 0.02em;
+    max-width: 720px;
+  }
+
+  .takeaway-text {
+    font-family: "Fraunces", serif;
+    font-size: 16.5px;
+    line-height: 1.7;
+    color: rgba(239, 232, 216, 0.85);
+    margin: 0 0 6px;
+    max-width: 760px;
+  }
+
+  .takeaway-text-jp {
+    font-family: "Shippori Mincho", serif;
+    font-size: 13px;
+    line-height: 1.9;
+    color: rgba(239, 232, 216, 0.55);
+    max-width: 720px;
+    margin: 0 0 18px;
+    letter-spacing: 0.02em;
+  }
+
+  /* Footer */
+  .cta {
+    position: relative;
+    z-index: 2;
+    margin-top: 56px;
+    padding-top: 32px;
+    border-top: 1.5px solid var(--ink);
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 32px;
+    animation: fadeUp 0.9s ease-out 0.7s both;
+  }
+
+  .cta-text { display: flex; flex-direction: column; gap: 10px; max-width: 620px; }
+
+  .cta-en {
+    font-family: "Fraunces", serif;
+    font-weight: 500;
+    font-size: 17px;
+    line-height: 1.55;
+    color: var(--ink);
+  }
+
+  .cta-en strong { font-weight: 700; }
+
+  .cta-jp {
+    font-family: "Shippori Mincho", serif;
+    font-size: 12.5px;
+    line-height: 1.75;
+    color: var(--ink-mute);
+  }
+
+  .cta-sign {
+    font-family: "Fraunces", serif;
+    font-style: italic;
+    font-size: 13px;
+    letter-spacing: 0.14em;
+    color: var(--ink-mute);
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(14px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @media (max-width: 760px) {
+    .page { padding: 32px 22px 60px; }
+    .masthead { flex-direction: column; gap: 14px; }
+    .masthead-right { text-align: left; }
+    .jp-card { grid-template-columns: 1fr; gap: 16px; padding: 22px; }
+    .jp-flag { border-right: none; border-bottom: 1px solid var(--paper-deep); padding: 0 0 16px; display: flex; align-items: center; gap: 14px; justify-content: flex-start; }
+    .jp-flag .circle { margin: 0; width: 32px; height: 32px; }
+    .world-grid { grid-template-columns: 1fr; }
+    .counter-grid { grid-template-columns: 1fr; }
+    .diff-grid { grid-template-columns: 1fr; }
+    .cta { flex-direction: column; align-items: flex-start; }
+    .kanji-mark { font-size: 200px; opacity: 0.05; }
+    .takeaway { padding: 32px 24px; }
+  }
+
+  @media print {
+    body { background: #fff; background-image: none; }
+    .kanji-mark { display: none; }
+    .takeaway { color: #1a1612; background: #f5efe1; }
+    .takeaway-title, .takeaway-text { color: #1a1612; }
+  }
+</style>
+</head>
+<body>
+  <div class="page">
+
+    <div class="kanji-mark" aria-hidden="true">同</div>
+
+    <header class="masthead">
+      <div class="masthead-left">
+        <div class="issue-label">Taro × You · Cross-Cultural Field Guide</div>
+        <div class="issue-title">Field Guide No.02 — The Myth of Uniqueness</div>
+        <div class="issue-title-jp">日本独特と言われがちな文化、世界と比べてみた</div>
+      </div>
+      <div class="masthead-right">
+        Comparison Edition<br>
+        <strong>WE'RE ALL DOING IT</strong>
+        <div class="jp-tag">みんなやってる、ただ名前が違うだけ</div>
+      </div>
+    </header>
+
+    <section class="hero">
+      <div class="hero-eyebrow">A Comparative Look <span class="jp">比較してみた</span></div>
+      <h1 class="hero-headline">
+        "Reading the air" is <span class="hero-strike">uniquely Japanese</span> — <em>universally human</em>.
+      </h1>
+      <p class="hero-headline-jp">
+        「空気を読む」は<span style="text-decoration: line-through; text-decoration-color: var(--vermillion); color: var(--ink-mute);">日本独自の文化</span>——人類共通のスキル。
+      </p>
+      <p class="hero-deck">
+        Honne &amp; tatemae. Reading the air. The polite Japanese "no." For decades, these have been served up as proof of Japanese cultural exceptionalism. So we lined them up next to their cousins in the US, UK, Brazil, France, and beyond — and found that almost every behavior has a near-perfect equivalent somewhere else. Including <em>KY</em>.
+      </p>
+      <p class="hero-deck-jp">
+        本音と建前、空気を読む、婉曲な断り方——「日本人だけが得意」とされてきたこれらの作法を、世界の友達と並べてみたら、ほぼ全部に対応する表現や習慣があった。「KY」にもちゃんと相棒がいる。
+      </p>
+    </section>
+
+    <!-- ============ #1 The Empty Invitation ============ -->
+    <section class="compare">
+      <div class="compare-num">Comparison 01 <span class="jp">／ 比較 01</span></div>
+      <h2 class="compare-title">The Invitation That Will <em>Never</em> Happen</h2>
+      <div class="compare-title-jp">絶対に実現しない誘い</div>
+
+      <div class="jp-card">
+        <div class="jp-flag">
+          <span class="circle"></span>
+          JAPAN
+          <span class="jp-name">日本</span>
+        </div>
+        <div class="jp-content">
+          <p class="jp-phrase">今度ごはんでも行きましょう！</p>
+          <div class="jp-romaji">kondo gohan demo ikimashou</div>
+          <div class="jp-meaning">"Let's grab a meal sometime!" — A warm parting line. There is no plan. There will be no plan. Both of you know.</div>
+          <div class="jp-meaning-jp">温かい別れ際の一言。予定はない。これからもない。お互い分かっている。</div>
+        </div>
+      </div>
+
+      <div class="world-label">Around the World <span class="jp">／ 世界では</span></div>
+      <div class="world-grid">
+        <div class="world-card">
+          <div class="country">United States &nbsp;／&nbsp; アメリカ</div>
+          <div class="world-phrase">"We should grab coffee sometime!"</div>
+          <div class="world-phrase-jp">「今度コーヒー行こうよ！」</div>
+          <div class="world-gloss">Industrial-strength social glue. Means absolutely nothing.</div>
+          <div class="world-gloss-jp">業務用強度の社交辞令。意味はゼロ。</div>
+        </div>
+        <div class="world-card">
+          <div class="country">United Kingdom &nbsp;／&nbsp; イギリス</div>
+          <div class="world-phrase">"Must do lunch!"</div>
+          <div class="world-phrase-jp">「今度ランチしないとね！」</div>
+          <div class="world-gloss">Said as you're already opening the door. Plan never materializes.</div>
+          <div class="world-gloss-jp">もうドアを開けながら言う。計画は実現しない。</div>
+        </div>
+        <div class="world-card">
+          <div class="country">Brazil &nbsp;／&nbsp; ブラジル</div>
+          <div class="world-phrase">"Vamos marcar um café!"</div>
+          <div class="world-phrase-jp">「コーヒーの予定入れよう！」</div>
+          <div class="world-gloss">"Let's schedule a coffee!" Phantom calendar entry forever.</div>
+          <div class="world-gloss-jp">幻のカレンダー予定として永遠に残る。</div>
+        </div>
+        <div class="world-card">
+          <div class="country">France &nbsp;／&nbsp; フランス</div>
+          <div class="world-phrase">"Il faut qu'on se voie!"</div>
+          <div class="world-phrase-jp">「絶対また会わなきゃね！」</div>
+          <div class="world-gloss">"We must see each other!" The 'must' carries zero obligation.</div>
+          <div class="world-gloss-jp">「絶対」に義務感ゼロ。</div>
+        </div>
+      </div>
+
+      <div class="verdict">
+        <span class="verdict-tag">Verdict ／ 結論</span>
+        <div class="verdict-body">
+          <p class="verdict-text">A universal social ritual. Every culture has invented the same lie to soften a goodbye.</p>
+          <p class="verdict-jp">全世界共通の社交儀礼。どの文化も、別れ際を和らげるために同じ嘘を発明している。</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ #2 The Polite No ============ -->
+    <section class="compare">
+      <div class="compare-num">Comparison 02 <span class="jp">／ 比較 02</span></div>
+      <h2 class="compare-title">The "Yes" That Is Actually <em>No</em></h2>
+      <div class="compare-title-jp">「はい」のフリをした「いいえ」</div>
+
+      <div class="jp-card">
+        <div class="jp-flag">
+          <span class="circle"></span>
+          JAPAN
+          <span class="jp-name">日本</span>
+        </div>
+        <div class="jp-content">
+          <p class="jp-phrase">前向きに検討させていただきます。</p>
+          <div class="jp-romaji">maemuki ni kentou sasete itadakimasu</div>
+          <div class="jp-meaning">"We'll consider it positively." — A polished refusal. Translated: this idea is dead.</div>
+          <div class="jp-meaning-jp">磨き上げられた拒否表現。直訳すれば「この案は終わった」。</div>
+        </div>
+      </div>
+
+      <div class="world-label">Around the World <span class="jp">／ 世界では</span></div>
+      <div class="world-grid">
+        <div class="world-card">
+          <div class="country">United Kingdom &nbsp;／&nbsp; イギリス</div>
+          <div class="world-phrase">"That's a very interesting idea."</div>
+          <div class="world-phrase-jp">「とても興味深いアイディアですね」</div>
+          <div class="world-gloss">Famous in diplomatic translation guides. Means: "I think it's terrible."</div>
+          <div class="world-gloss-jp">外交翻訳ガイドで有名な定型。意味は「ひどい案だと思う」。</div>
+        </div>
+        <div class="world-card">
+          <div class="country">United Kingdom (variant) &nbsp;／&nbsp; イギリス（別形）</div>
+          <div class="world-phrase">"Could be a bit tricky."</div>
+          <div class="world-phrase-jp">「ちょっと難しいかもしれませんね」</div>
+          <div class="world-gloss">Means: "It is completely impossible and I'd rather quit than try."</div>
+          <div class="world-gloss-jp">意味：「完全に不可能。やるくらいなら辞職する」。</div>
+        </div>
+        <div class="world-card">
+          <div class="country">United States &nbsp;／&nbsp; アメリカ</div>
+          <div class="world-phrase">"Let me think about it / I'll circle back."</div>
+          <div class="world-phrase-jp">「考えてみます／また連絡します」</div>
+          <div class="world-gloss">Corporate Americana for "no, but I want to leave the room first."</div>
+          <div class="world-gloss-jp">米コーポレート用語で「No、でもまず部屋を出たい」。</div>
+        </div>
+        <div class="world-card">
+          <div class="country">France &nbsp;／&nbsp; フランス</div>
+          <div class="world-phrase">"Nous allons étudier la question."</div>
+          <div class="world-phrase-jp">「検討させていただきます」</div>
+          <div class="world-gloss">"We will study the question." Studying never concludes.</div>
+          <div class="world-gloss-jp">「問題を研究します」。研究は永遠に終わらない。</div>
+        </div>
+      </div>
+
+      <div class="verdict">
+        <span class="verdict-tag">Verdict ／ 結論</span>
+        <div class="verdict-body">
+          <p class="verdict-text">Polite indirect refusal is a universal corporate and social skill. Every language has built its own bureaucracy of soft "no."</p>
+          <p class="verdict-jp">婉曲な断り方は世界共通のビジネス・社交スキル。どの言語も独自の「柔らかいNo」の官僚機構を築き上げている。</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ #3 KY (Featured) ============ -->
+    <section class="compare">
+      <div class="compare-num">Comparison 03 · Featured <span class="jp">／ 比較 03・特集</span></div>
+      <h2 class="compare-title">A Word for "The Person Who Just Doesn't Get It" — <em>KY</em></h2>
+      <div class="compare-title-jp">「あの人、空気読めないよね」を表す言葉——KY</div>
+
+      <div class="jp-card">
+        <div class="jp-flag">
+          <span class="circle"></span>
+          JAPAN
+          <span class="jp-name">日本</span>
+        </div>
+        <div class="jp-content">
+          <p class="jp-phrase">あの人、KYだよね……</p>
+          <div class="jp-romaji">ano hito, KY da yo ne</div>
+          <div class="jp-meaning">KY = <strong>kuuki yomenai</strong> ("can't read the air"). Coined in the 2000s, now standard slang for someone who blunders socially without realizing it.</div>
+          <div class="jp-meaning-jp">KY＝「空気読めない」の略。2000年代に流行語化、今では社会的失態に気づかない人を表す定番スラング。</div>
+        </div>
+      </div>
+
+      <div class="world-label">Every Language Has Its Own KY <span class="jp">／ どの言語にも「KY」がいる</span></div>
+      <div class="world-grid">
+        <div class="world-card">
+          <div class="country">English (general) &nbsp;／&nbsp; 英語（一般）</div>
+          <div class="world-phrase">"Can't read the room."</div>
+          <div class="world-phrase-jp">「場の空気を読めない」</div>
+          <div class="world-gloss">A near-perfect literal translation. Used identically. "He just can't read the room."</div>
+          <div class="world-gloss-jp">ほぼ完璧な直訳。同じように使う。「あいつ場の空気読めないんだよ」。</div>
+        </div>
+        <div class="world-card">
+          <div class="country">English (variants) &nbsp;／&nbsp; 英語（別形）</div>
+          <div class="world-phrase">"Tone-deaf. / Oblivious. / Can't take a hint."</div>
+          <div class="world-phrase-jp">「音痴」「鈍感」「ヒントが伝わらない」</div>
+          <div class="world-gloss">A whole micro-vocabulary for socially-blunt people. KY has competition.</div>
+          <div class="world-gloss-jp">社交的に鈍い人のためのミニ語彙群。KYには競合がたくさんいる。</div>
+        </div>
+        <div class="world-card">
+          <div class="country">Brazil &nbsp;／&nbsp; ブラジル</div>
+          <div class="world-phrase">"Sem noção."</div>
+          <div class="world-phrase-jp">「常識ない」</div>
+          <div class="world-gloss">Literally "without sense / clueless." Used exactly like KY among friends.</div>
+          <div class="world-gloss-jp">直訳「感覚なし／無神経」。友達同士でKYと全く同じ使い方。</div>
+        </div>
+        <div class="world-card">
+          <div class="country">France &nbsp;／&nbsp; フランス</div>
+          <div class="world-phrase">"Lourd." / "Sans-gêne."</div>
+          <div class="world-phrase-jp">「重い」／「恥知らず」</div>
+          <div class="world-gloss">"Heavy" / "shameless." Describes the person who doesn't sense when to stop.</div>
+          <div class="world-gloss-jp">引き際を察しない人を表す。日本のKYと機能が完全に同じ。</div>
+        </div>
+        <div class="world-card">
+          <div class="country">Germany &nbsp;／&nbsp; ドイツ</div>
+          <div class="world-phrase">"Ins Fettnäpfchen treten."</div>
+          <div class="world-phrase-jp">「肉汁の器に踏み込む」</div>
+          <div class="world-gloss">"To step in the gravy bowl." A whole verb for committing a social gaffe.</div>
+          <div class="world-gloss-jp">社交的失態を犯すことを意味する動詞句。表現が独特で味がある。</div>
+        </div>
+        <div class="world-card">
+          <div class="country">Italy &nbsp;／&nbsp; イタリア</div>
+          <div class="world-phrase">"Fare una gaffe."</div>
+          <div class="world-phrase-jp">「ガフをやらかす」</div>
+          <div class="world-gloss">Adopted the French <em>gaffe</em> into a whole concept of misread social moments.</div>
+          <div class="world-gloss-jp">フランス語の gaffe を取り込んで、空気を読み損ねた瞬間を表す概念に。</div>
+        </div>
+      </div>
+
+      <div class="verdict">
+        <span class="verdict-tag">Verdict ／ 結論</span>
+        <div class="verdict-body">
+          <p class="verdict-text">KY is not unique. Humans everywhere have built words for the exact same person — the one who didn't notice everyone wanted to leave.</p>
+          <p class="verdict-jp">KYは日本独自じゃない。世界中の人類が、同じ人物のために言葉を作ってきた——「みんな帰りたがってるのに気づかなかった人」のための言葉を。</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ #4 I'm Fine ============ -->
+    <section class="compare">
+      <div class="compare-num">Comparison 04 <span class="jp">／ 比較 04</span></div>
+      <h2 class="compare-title">"I'm Fine" — When You're <em>Visibly Not</em></h2>
+      <div class="compare-title-jp">「大丈夫です」——どう見ても大丈夫じゃない時の</div>
+
+      <div class="jp-card">
+        <div class="jp-flag">
+          <span class="circle"></span>
+          JAPAN
+          <span class="jp-name">日本</span>
+        </div>
+        <div class="jp-content">
+          <p class="jp-phrase">大丈夫です、ありがとうございます。</p>
+          <div class="jp-romaji">daijoubu desu, arigatou gozaimasu</div>
+          <div class="jp-meaning">"I'm fine, thank you." — Said while looking exhausted, sick, or two seconds from crying.</div>
+          <div class="jp-meaning-jp">疲労困憊・体調不良・あと2秒で泣きそう、という状態で言う定番フレーズ。</div>
+        </div>
+      </div>
+
+      <div class="world-label">Around the World <span class="jp">／ 世界では</span></div>
+      <div class="world-grid">
+        <div class="world-card">
+          <div class="country">United Kingdom &nbsp;／&nbsp; イギリス</div>
+          <div class="world-phrase">"I'm fine, thanks."</div>
+          <div class="world-phrase-jp">「大丈夫、ありがとう」</div>
+          <div class="world-gloss">The legendary stiff upper lip. Said through actual tears if needed.</div>
+          <div class="world-gloss-jp">伝説の「スティッフ・アッパー・リップ（毅然とした態度）」。実際に涙をこらえながらも言う。</div>
+        </div>
+        <div class="world-card">
+          <div class="country">United States &nbsp;／&nbsp; アメリカ</div>
+          <div class="world-phrase">"I'm good — you?"</div>
+          <div class="world-phrase-jp">「元気だよ、君は？」</div>
+          <div class="world-gloss">A reflex so automatic it requires zero cognitive engagement.</div>
+          <div class="world-gloss-jp">あまりに自動化された反射神経。思考が一切介在しない。</div>
+        </div>
+        <div class="world-card">
+          <div class="country">Brazil &nbsp;／&nbsp; ブラジル</div>
+          <div class="world-phrase">"Tô tranquilo."</div>
+          <div class="world-phrase-jp">「落ち着いてるよ」</div>
+          <div class="world-gloss">"I'm chill." Often said while clearly very not chill.</div>
+          <div class="world-gloss-jp">「のんびりしてるよ」。明らかにのんびりしてない時に言うことが多い。</div>
+        </div>
+        <div class="world-card">
+          <div class="country">France &nbsp;／&nbsp; フランス</div>
+          <div class="world-phrase">"Ça va, ça va."</div>
+          <div class="world-phrase-jp">「大丈夫、大丈夫」</div>
+          <div class="world-gloss">Repeated twice for extra deflection. The repetition is the giveaway.</div>
+          <div class="world-gloss-jp">二回繰り返してさらに防御。繰り返すこと自体が本音の証拠。</div>
+        </div>
+      </div>
+
+      <div class="verdict">
+        <span class="verdict-tag">Verdict ／ 結論</span>
+        <div class="verdict-body">
+          <p class="verdict-text">The most universal phrase in human social life. No culture has solved this. None probably ever will.</p>
+          <p class="verdict-jp">人類の社交人生で最も普遍的なフレーズ。どの文化も解決していない。これからも多分しないだろう。</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ #5 Empty Glass ============ -->
+    <section class="compare">
+      <div class="compare-num">Comparison 05 <span class="jp">／ 比較 05</span></div>
+      <h2 class="compare-title">The Empty Glass Nobody Mentions</h2>
+      <div class="compare-title-jp">誰も口に出さない、空のグラス</div>
+
+      <div class="jp-card">
+        <div class="jp-flag">
+          <span class="circle"></span>
+          JAPAN
+          <span class="jp-name">日本</span>
+        </div>
+        <div class="jp-content">
+          <p class="jp-phrase">お酌（おしゃく）の作法</p>
+          <div class="jp-romaji">oshaku no sahou — the etiquette of pouring</div>
+          <div class="jp-meaning">At a nomikai, when your senior's glass dips low, you reach for the bottle. Nobody asks. The empty glass is the request.</div>
+          <div class="jp-meaning-jp">飲み会で、先輩のグラスが空いてきたらビンに手を伸ばす。誰も頼まない。空のグラスそれ自体がリクエスト。</div>
+        </div>
+      </div>
+
+      <div class="world-label">Around the World <span class="jp">／ 世界では</span></div>
+      <div class="world-grid">
+        <div class="world-card">
+          <div class="country">United Kingdom &nbsp;／&nbsp; イギリス</div>
+          <div class="world-phrase">Pub round culture.</div>
+          <div class="world-phrase-jp">パブの「ラウンド」文化</div>
+          <div class="world-gloss">You're supposed to know when it's your round. Forget twice, and you're "that guy" forever.</div>
+          <div class="world-gloss-jp">自分の番が来たら察するべき。2回忘れたら一生「あの人」扱い。</div>
+        </div>
+        <div class="world-card">
+          <div class="country">France &nbsp;／&nbsp; フランス</div>
+          <div class="world-phrase">Topping up the wine.</div>
+          <div class="world-phrase-jp">ワインを注ぎ足す</div>
+          <div class="world-gloss">A near-empty glass at the dinner table is a quiet question. The host answers without words.</div>
+          <div class="world-gloss-jp">ディナーテーブルで空に近いグラスは無言の問いかけ。ホストは言葉なしで答える。</div>
+        </div>
+        <div class="world-card">
+          <div class="country">Brazil &nbsp;／&nbsp; ブラジル</div>
+          <div class="world-phrase">Refilling the chopp / cachaça.</div>
+          <div class="world-phrase-jp">生ビール／カシャッサを注ぎ足す</div>
+          <div class="world-gloss">At a churrasco, watching everyone's drink level is a basic social skill. Empty = your move.</div>
+          <div class="world-gloss-jp">シュラスコで全員のグラスを観察するのは基本スキル。空＝自分の出番。</div>
+        </div>
+        <div class="world-card">
+          <div class="country">Russia / Eastern Europe &nbsp;／&nbsp; ロシア・東欧</div>
+          <div class="world-phrase">Toast and pour discipline.</div>
+          <div class="world-phrase-jp">乾杯と注ぎ方の作法</div>
+          <div class="world-gloss">Elaborate, hierarchical pouring rituals. Japan does not own this.</div>
+          <div class="world-gloss-jp">緻密で階層的な注ぎの儀礼。日本だけのものじゃない。</div>
+        </div>
+      </div>
+
+      <div class="verdict">
+        <span class="verdict-tag">Verdict ／ 結論</span>
+        <div class="verdict-body">
+          <p class="verdict-text">Drink-monitoring is a global pre-verbal contract. Wherever people drink together, this etiquette has evolved.</p>
+          <p class="verdict-jp">飲み物を観察する作法は世界共通の「言葉以前の契約」。人が一緒に飲む場所では、必ずこのマナーが進化してきた。</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ #6 Kyoto: nigiyaka ============ -->
+    <section class="compare">
+      <div class="compare-num">Comparison 06 <span class="jp">／ 比較 06</span></div>
+      <h2 class="compare-title">"What a Lively Child!" — Meaning: <em>Please Quiet Them Down</em></h2>
+      <div class="compare-title-jp">「お元気なお子さんですね」——意味：静かにさせてください</div>
+
+      <div class="jp-card">
+        <div class="jp-flag">
+          <span class="circle"></span>
+          JAPAN (KYOTO)
+          <span class="jp-name">日本（京都）</span>
+        </div>
+        <div class="jp-content">
+          <p class="jp-phrase">お元気なお子さんでいらっしゃいますね。</p>
+          <div class="jp-romaji">o-genki na okosan de irasshaimasu ne</div>
+          <div class="jp-meaning">"What an energetic child you have!" — Legendary Kyoto code. The same goes for the word <em>nigiyaka</em> (賑やか / "lively"). On the surface it sounds like a compliment. Underneath, it means: "Your child is being too loud. Please do something."</div>
+          <div class="jp-meaning-jp">京都流の伝説的な婉曲表現。「賑やか」も同じ機能を持つ。表面は褒め言葉、裏側の意味は「お子さんがうるさいので、どうにかしてください」。</div>
+        </div>
+      </div>
+
+      <div class="world-label">Around the World <span class="jp">／ 世界では</span></div>
+      <div class="world-grid">
+        <div class="world-card">
+          <div class="country">United Kingdom &nbsp;／&nbsp; イギリス</div>
+          <div class="world-phrase">"He's certainly got… character!"</div>
+          <div class="world-phrase-jp">「とても……個性的なお子さんですね」</div>
+          <div class="world-gloss">British wrap-around. "Character" applied to a misbehaving child is almost never a pure compliment — and the pause does the work.</div>
+          <div class="world-gloss-jp">英国式の包み込み話法。「個性的」は問題行動のある子に使うと純粋な褒め言葉ではほぼない。間（ま）が本音を伝える。</div>
+        </div>
+        <div class="world-card">
+          <div class="country">United States (South) &nbsp;／&nbsp; アメリカ南部</div>
+          <div class="world-phrase">"Well, bless his little heart."</div>
+          <div class="world-phrase-jp">「あらまあ、神のご加護を」</div>
+          <div class="world-gloss">Southern politeness code. Said about a misbehaving child, it usually means "your child is awful and I am too well-mannered to say so."</div>
+          <div class="world-gloss-jp">米南部の礼儀作法の暗号。問題行動のある子について言えば、大体「お子さん酷いけど、私は礼儀正しいから直接は言わない」の意。</div>
+        </div>
+        <div class="world-card">
+          <div class="country">France &nbsp;／&nbsp; フランス</div>
+          <div class="world-phrase">"Il a beaucoup de… caractère, votre fils."</div>
+          <div class="world-phrase-jp">「お子さん、とても……個性が強いですね」</div>
+          <div class="world-gloss">"He has a lot of… character." The pause before <em>caractère</em> is the entire message.</div>
+          <div class="world-gloss-jp">「彼は……個性が強いですね」。caractère の前の「間」こそが本当のメッセージ。</div>
+        </div>
+        <div class="world-card">
+          <div class="country">Brazil &nbsp;／&nbsp; ブラジル</div>
+          <div class="world-phrase">"Nossa, que energia!"</div>
+          <div class="world-phrase-jp">「うわ、すごいエネルギー！」</div>
+          <div class="world-gloss">"Wow, what energy!" Said with a smile, it's sincere. Said with a flat face and tight lips, it's a complaint.</div>
+          <div class="world-gloss-jp">「すごいエネルギー！」笑顔で言われれば本物、無表情で口を結んで言われれば苦情。</div>
+        </div>
+      </div>
+
+      <div class="verdict">
+        <span class="verdict-tag">Verdict ／ 結論</span>
+        <div class="verdict-body">
+          <p class="verdict-text">Indirect criticism dressed as a compliment. Every culture has independently invented the art of politely complaining about other people's children.</p>
+          <p class="verdict-jp">ほめ言葉のフリをした苦情。どの文化も、他人の子どもについて婉曲に文句を言う技術を、独立して発明している。</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ Break ============ -->
+    <section class="break">
+      <div class="break-ornament">◆ &nbsp; ◆ &nbsp; ◆</div>
+      <h2 class="break-title">So Then — Where <em>Is</em> Japan Actually Different?</h2>
+      <p class="break-title-jp">では、日本は実際どこが違うのか？</p>
+      <p class="break-deck">
+        The behaviors aren't unique. But three things genuinely set Japan apart on the spectrum of human indirectness.
+      </p>
+      <p class="break-deck-jp">
+        行動そのものは独自じゃない。でも、人類の婉曲性スペクトルにおいて、日本を本当に際立たせている3つのことがある。
+      </p>
+    </section>
+
+    <!-- ============ Three diffs ============ -->
+    <section class="real-diff">
+      <div class="diff-grid">
+        <div class="diff-card">
+          <div class="diff-num">i.</div>
+          <h3 class="diff-title">The vocabulary is industrial-grade.</h3>
+          <div class="diff-title-jp">語彙が産業グレード。</div>
+          <p class="diff-text">
+            Japanese has named the concept with surgical precision: 本音 / 建前 / 空気を読む / 察する / 忖度 / KY / 以心伝心 / 行間を読む. Other languages describe these in phrases. Japan has built single words.
+          </p>
+          <p class="diff-text-jp">
+            日本語は概念を外科的精度で命名している：本音／建前／空気を読む／察する／忖度／KY／以心伝心／行間を読む。他言語ではフレーズで表現するものを、日本語は単語にまで凝縮した。
+          </p>
+        </div>
+        <div class="diff-card">
+          <div class="diff-num">ii.</div>
+          <h3 class="diff-title">It's taught, not just absorbed.</h3>
+          <div class="diff-title-jp">暗黙ではなく、明示的に教えられる。</div>
+          <p class="diff-text">
+            In Japanese schools and workplaces, "read the air" is said out loud to children and new hires. In most cultures, the same skill is acquired silently. Japan teaches a curriculum the others teach by osmosis.
+          </p>
+          <p class="diff-text-jp">
+            日本の学校・職場では「空気を読め」が子どもや新人に向かって口に出される。他の多くの文化では、同じスキルが無言のうちに習得される。日本はカリキュラムとして教える、他文化が見よう見まねで教えるものを。
+          </p>
+        </div>
+        <div class="diff-card">
+          <div class="diff-num">iii.</div>
+          <h3 class="diff-title">The default is dialed further down.</h3>
+          <div class="diff-title-jp">デフォルトの直接性がさらに低い。</div>
+          <p class="diff-text">
+            On the global directness spectrum, Japan sits near the very indirect end. What counts as "perfectly normal" in NYC or Tel Aviv would feel jarring in Tokyo. The skill is universal; the default volume is different.
+          </p>
+          <p class="diff-text-jp">
+            世界の「直接性スペクトル」上で、日本は最も婉曲な側に位置する。ニューヨークやテルアビブで「ごく普通」の発言が、東京では違和感を生む。スキル自体は普遍的、デフォルトの音量だけが違う。
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ Counter ============ -->
+    <section class="counter">
+      <div class="counter-label">The Counter-Cases — Where Directness Wins <span class="jp">／ 反対側の文化——直接性が勝つ国々</span></div>
+      <h3 class="counter-title">Some cultures sit on the opposite end of the spectrum — and find Japanese indirection genuinely puzzling.</h3>
+      <p class="counter-title-jp">スペクトルの反対側に位置する文化もある——彼らは日本の婉曲性を本気で不可解だと感じている。</p>
+      <p class="counter-text">
+        If Japan is at one pole of indirect communication, these cultures are at the other. They have built social systems around the opposite assumption: that bluntness is respect, and indirectness is wasted time.
+      </p>
+      <p class="counter-text-jp">
+        日本が婉曲コミュニケーションの一極だとすれば、これらの文化はもう一極にいる。彼らは正反対の前提で社会システムを築いている——率直さこそ敬意であり、婉曲さは時間の無駄、という前提。
+      </p>
+      <div class="counter-grid">
+        <div class="counter-card">
+          <div class="counter-country">Netherlands &nbsp;／&nbsp; オランダ</div>
+          <p class="counter-quote">"Dutch directness."</p>
+          <p class="counter-quote-jp">「オランダ式の率直さ」</p>
+          <p class="counter-note">Famous worldwide. They will tell you your idea is bad to your face, with a smile, and consider it kindness.</p>
+          <p class="counter-note-jp">世界的に有名。あなたのアイデアが悪いと面と向かって、笑顔で告げる。彼らはそれを親切心だと信じている。</p>
+        </div>
+        <div class="counter-card">
+          <div class="counter-country">Israel &nbsp;／&nbsp; イスラエル</div>
+          <p class="counter-quote">"Dugri" — speaking straight.</p>
+          <p class="counter-quote-jp">「ドゥグリ」——率直に話す</p>
+          <p class="counter-note">A cultural value. Saying what you actually think is loyalty; softening it is suspicious.</p>
+          <p class="counter-note-jp">文化的価値観。本音を言うことが忠誠の証。逆に和らげると怪しまれる。</p>
+        </div>
+        <div class="counter-card">
+          <div class="counter-country">Germany &nbsp;／&nbsp; ドイツ</div>
+          <p class="counter-quote">Sachlichkeit — matter-of-fact-ness.</p>
+          <p class="counter-quote-jp">ザッハリッヒカイト——事実本位</p>
+          <p class="counter-note">Diplomatic vagueness is treated as inefficient. They prefer the clean "nein."</p>
+          <p class="counter-note-jp">外交的な曖昧さは非効率と見なされる。彼らはクリーンな「Nein（ノー）」を好む。</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ Takeaway ============ -->
+    <section class="takeaway">
+      <div class="takeaway-label">The Real Takeaway <span class="jp">／ 本当の結論</span></div>
+      <h2 class="takeaway-title">
+        We're all reading the air. Some cultures just <em>made a name for it</em>.
+      </h2>
+      <p class="takeaway-title-jp">
+        みんな、空気を読んでいる。日本はそれに名前をつけただけ。
+      </p>
+      <p class="takeaway-text">
+        The skill is universal human equipment. Honne &amp; tatemae, KY, the Kyoto "lively child" — every culture has cousins of these. What Japan did was something stranger and more interesting: it took a normal human ability and built a public vocabulary, a school curriculum, and a national identity around it.
+      </p>
+      <p class="takeaway-text-jp">
+        このスキルは人類共通の装備品。本音と建前、KY、京都の「賑やかなお子さん」——どの文化にもこれらの「いとこ」がいる。日本がやったのは、もっと奇妙で興味深いこと：人類の普通の能力を取り出して、その周りに公的な語彙、学校教育、国家アイデンティティまでをくっつけた。
+      </p>
+      <p class="takeaway-text">
+        Which means the next time someone says "this is uniquely Japanese," you can gently push back: the <em>behavior</em> is human. The <em>self-awareness</em> is Japanese.
+      </p>
+      <p class="takeaway-text-jp">
+        だから次回、誰かが「これは日本独自だ」と言ったら、優しく押し返していい——「行動」は人類共通、「自己認識」だけが日本流。
+      </p>
+    </section>
+
+    <footer class="cta">
+      <div class="cta-text">
+        <div class="cta-en">
+          <strong>Got a "KY" word from your country?</strong> Tell us in the comments — every culture has one, and we want to collect them. The best ones get featured in the next episode.
+        </div>
+        <div class="cta-jp">
+          あなたの国に「KY」的な単語、ありますか？コメントで教えてください——どの文化にも必ずあるはず。集まったものは次の動画で紹介します。
+        </div>
+      </div>
+      <div class="cta-sign">Taro × You ごはん</div>
+    </footer>
+
+  </div>
+</body>
+</html>
